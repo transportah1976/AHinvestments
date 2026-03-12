@@ -3,11 +3,11 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router';
 import { SEO } from './SEO';
 
-import stretchFilmImage from 'figma:asset/001c1621aa22ab2a478a5698f77be9dce320de31.png';
-import cornerboardsImage from 'figma:asset/f19d04960bd150641072a4892397eaf4c8972f04.png';
-import airbagsImage from 'figma:asset/615adbc2858537fb510867afcd2ccc3e9ef8c15d.png';
-import cardboardImage from 'figma:asset/9dd47ef7c9ec4258539938b19df7e46c67c43f9c.png';
-import strappingImage from 'figma:asset/35b151ef7d05debd29efdcb48671afaa16d85c81.png';
+const stretchFilmImage = '/assets/stretch-film.png';
+const cornerboardsImage = '/assets/cornerboards.png';
+const airbagsImage = '/assets/airbags.png';
+const cardboardImage = '/assets/cardboard.png';
+const strappingImage = '/assets/strapping.png';
 
 export function PackagingMaterials() {
   const fadeInUp = {

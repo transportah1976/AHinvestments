@@ -1,4 +1,4 @@
-import logoImage from 'figma:asset/a266568bddcde42826338ac9082adbaba10bb5c5.png';
+const logoImage = '/assets/logo.png';
 
 export function getStructuredData() {
   return {
