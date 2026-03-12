@@ -3,11 +3,11 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router';
 import { SEO } from './SEO';
 
-const stretchFilmImage = '/assets/stretch-film.png';
-const cornerboardsImage = '/assets/cornerboards.png';
-const airbagsImage = '/assets/airbags.png';
-const cardboardImage = '/assets/cardboard.png';
-const strappingImage = '/assets/strapping.png';
+import stretchFilmImage from 'figma:asset/001c1621aa22ab2a478a5698f77be9dce320de31.png';
+import cornerboardsImage from 'figma:asset/f19d04960bd150641072a4892397eaf4c8972f04.png';
+import airbagsImage from 'figma:asset/615adbc2858537fb510867afcd2ccc3e9ef8c15d.png';
+import cardboardImage from 'figma:asset/9dd47ef7c9ec4258539938b19df7e46c67c43f9c.png';
+import strappingImage from 'figma:asset/35b151ef7d05debd29efdcb48671afaa16d85c81.png';
 
 export function PackagingMaterials() {
   const fadeInUp = {
@@ -293,7 +293,7 @@ export function PackagingMaterials() {
       </section>
 
       {/* Paski bindujące */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -377,13 +377,13 @@ export function PackagingMaterials() {
       </section>
 
       {/* Kartony i Tuleje - Grid */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Kartony */}
             <motion.div
               {...fadeInUp}
-              className="bg-gray-50 p-8 rounded-3xl border border-gray-100"
+              className="bg-white p-8 rounded-3xl border border-gray-100"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-[#1B3A5F] to-[#2a4870] rounded-xl flex items-center justify-center flex-shrink-0">
@@ -428,7 +428,7 @@ export function PackagingMaterials() {
             {/* Tuleje */}
             <motion.div
               {...fadeInUp}
-              className="bg-gray-50 p-8 rounded-3xl border border-gray-100"
+              className="bg-white p-8 rounded-3xl border border-gray-100"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-[#F5931D] to-[#e58718] rounded-xl flex items-center justify-center flex-shrink-0">

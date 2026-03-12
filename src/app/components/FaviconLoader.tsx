@@ -1,10 +1,8 @@
 import { useEffect } from 'react';
-
-const logoImage = '/assets/logo.png';
+import logoImage from 'figma:asset/a266568bddcde42826338ac9082adbaba10bb5c5.png';
 
 export function FaviconLoader() {
   useEffect(() => {
-    // Update favicon dynamically
     const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
     if (link) {
       link.href = logoImage;
@@ -16,13 +14,11 @@ export function FaviconLoader() {
       document.head.appendChild(newLink);
     }
 
-    // Update apple touch icon
     const appleTouchIcon = document.querySelector("link[rel='apple-touch-icon']") as HTMLLinkElement;
     if (appleTouchIcon) {
       appleTouchIcon.href = logoImage;
     }
 
-    // Update OG image for social media
     const ogImage = document.querySelector("meta[property='og:image']") as HTMLMetaElement;
     if (ogImage) {
       ogImage.content = logoImage;

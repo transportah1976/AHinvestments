@@ -1,8 +1,7 @@
 import { Truck, Shield, Clock, Globe, Phone, Euro, HeartHandshake, PackageCheck } from 'lucide-react';
 import { motion } from 'motion/react';
 import { SEO } from './SEO';
-
-const transportImage = '/assets/transport.png';
+import transportImage from 'figma:asset/5b73e6c3adf9be9d27c1a5f9d947f37f274bc7c8.png';
 
 export function InternationalTransport() {
   const fadeInUp = {
