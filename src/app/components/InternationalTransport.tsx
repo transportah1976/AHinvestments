@@ -1,7 +1,8 @@
 import { Truck, Shield, Clock, Globe, Phone, Euro, HeartHandshake, PackageCheck } from 'lucide-react';
 import { motion } from 'motion/react';
 import { SEO } from './SEO';
-import transportImage from 'figma:asset/5b73e6c3adf9be9d27c1a5f9d947f37f274bc7c8.png';
+
+const transportImage = 'https://images.unsplash.com/photo-1766561994067-dbd575e1cff2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnRlcm5hdGlvbmFsJTIwZnJlaWdodCUyMHRyYW5zcG9ydCUyMHRydWNrJTIwaGlnaHdheXxlbnwxfHx8fDE3NzMzNDk4ODl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral';
 
 export function InternationalTransport() {
   const fadeInUp = {

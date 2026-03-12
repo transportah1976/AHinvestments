@@ -1,7 +1,8 @@
 import { Link, Outlet, useLocation } from 'react-router';
-import logo from 'figma:asset/a266568bddcde42826338ac9082adbaba10bb5c5.png';
 import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
 import { useState, useEffect } from 'react';
+
+const logo = 'https://images.unsplash.com/photo-1760786841098-06a0a1a5d661?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cmFuc3BvcnQlMjBsb2dpc3RpY3MlMjBjb21wYW55JTIwbG9nb3xlbnwxfHx8fDE3NzMzNDk4OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral';
 
 export function Layout() {
   const location = useLocation();

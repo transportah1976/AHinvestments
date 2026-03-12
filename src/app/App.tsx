@@ -1,7 +1,8 @@
 import { RouterProvider } from 'react-router';
 import { router } from './routes';
 import { useEffect } from 'react';
-import favicon from 'figma:asset/908ac7fc59c7fd27f5e335c50a720308a90c5c17.png';
+
+const favicon = 'https://images.unsplash.com/photo-1770944182436-9e7b470a7669?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmFuZ2UlMjBsb2dpc3RpY3MlMjBjb21wYW55JTIwZmF2aWNvbiUyMGljb258ZW58MXx8fHwxNzczMzQ5ODg2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral';
 
 export default function App() {
   useEffect(() => {

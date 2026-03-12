@@ -2,11 +2,12 @@ import { Package, Shield, CheckCircle, Box, Layers } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router';
 import { SEO } from './SEO';
-import stretchFilm from 'figma:asset/001c1621aa22ab2a478a5698f77be9dce320de31.png';
-import cornerboards from 'figma:asset/f19d04960bd150641072a4892397eaf4c8972f04.png';
-import airbags from 'figma:asset/615adbc2858537fb510867afcd2ccc3e9ef8c15d.png';
-import cardboard from 'figma:asset/9dd47ef7c9ec4258539938b19df7e46c67c43f9c.png';
-import strapping from 'figma:asset/35b151ef7d05debd29efdcb48671afaa16d85c81.png';
+
+const stretchFilm = 'https://images.unsplash.com/photo-1694610882150-4de206edf95a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwbGFzdGljJTIwc3RyZXRjaCUyMHdyYXAlMjByb2xsfGVufDF8fHx8MTc3MzM0OTg5Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral';
+const cornerboards = 'https://images.unsplash.com/photo-1631010231888-777b6285ef84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXJkYm9hcmQlMjBjb3JuZXIlMjBwcm90ZWN0b3JzJTIwcGFja2FnaW5nfGVufDF8fHx8MTc3MzM0OTg4OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral';
+const airbags = 'https://images.unsplash.com/photo-1637251393438-30eca8828253?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhaXIlMjBjdXNoaW9uJTIwYmFncyUyMHBhY2thZ2luZyUyMG1hdGVyaWFsfGVufDF8fHx8MTc3MzM0OTg4OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral';
+const cardboard = 'https://images.unsplash.com/photo-1773125929765-99d4d67e831d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3JydWdhdGVkJTIwY2FyZGJvYXJkJTIwYm94ZXMlMjBwYWNrYWdpbmd8ZW58MXx8fHwxNzczMzQ5ODg4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral';
+const strapping = 'https://images.unsplash.com/photo-1601637742135-c9b747da987c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwbGFzdGljJTIwc3RyYXBwaW5nJTIwYmFuZHMlMjBwYWNrYWdpbmclMjBtYXRlcmlhbHxlbnwxfHx8fDE3NzMzNDk4ODl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral';
 
 export function PackagingMaterials() {
   const fadeInUp = {
