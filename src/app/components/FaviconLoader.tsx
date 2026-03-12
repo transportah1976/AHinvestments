@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import faviconImage from 'figma:asset/908ac7fc59c7fd27f5e335c50a720308a90c5c17.png';
 import logoImage from 'figma:asset/a266568bddcde42826338ac9082adbaba10bb5c5.png';
 
 export function FaviconLoader() {
@@ -7,19 +6,19 @@ export function FaviconLoader() {
     // Update favicon dynamically
     const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
     if (link) {
-      link.href = faviconImage;
+      link.href = logoImage;
     } else {
       const newLink = document.createElement('link');
       newLink.rel = 'icon';
       newLink.type = 'image/png';
-      newLink.href = faviconImage;
+      newLink.href = logoImage;
       document.head.appendChild(newLink);
     }
 
     // Update apple touch icon
     const appleTouchIcon = document.querySelector("link[rel='apple-touch-icon']") as HTMLLinkElement;
     if (appleTouchIcon) {
-      appleTouchIcon.href = faviconImage;
+      appleTouchIcon.href = logoImage;
     }
 
     // Update OG image for social media

@@ -3,7 +3,6 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router';
 import { SEO } from './SEO';
 
-// Import rzeczywistych zdjęć produktów
 import stretchFilmImage from 'figma:asset/001c1621aa22ab2a478a5698f77be9dce320de31.png';
 import cornerboardsImage from 'figma:asset/f19d04960bd150641072a4892397eaf4c8972f04.png';
 import airbagsImage from 'figma:asset/615adbc2858537fb510867afcd2ccc3e9ef8c15d.png';
@@ -119,7 +118,7 @@ export function PackagingMaterials() {
               <img
                 src={stretchFilmImage}
                 alt="Folia stretch na palecie"
-                className="relative rounded-3xl shadow-2xl w-full h-[500px] object-cover"
+                className="relative rounded-3xl shadow-2xl w-full h-[500px] object-contain bg-gray-100"
               />
             </motion.div>
           </div>
@@ -141,7 +140,7 @@ export function PackagingMaterials() {
               <img
                 src={cornerboardsImage}
                 alt="Kątowniki tekturowe"
-                className="relative rounded-3xl shadow-2xl w-full h-[500px] object-cover"
+                className="relative rounded-3xl shadow-2xl w-full h-[500px] object-contain bg-gray-100"
               />
             </motion.div>
 
@@ -286,7 +285,7 @@ export function PackagingMaterials() {
               <img
                 src={airbagsImage}
                 alt="Worki wypełniające przestrzeń"
-                className="relative rounded-3xl shadow-2xl w-full h-[500px] object-cover"
+                className="relative rounded-3xl shadow-2xl w-full h-[500px] object-contain bg-gray-100"
               />
             </motion.div>
           </div>
@@ -308,7 +307,7 @@ export function PackagingMaterials() {
               <img
                 src={strappingImage}
                 alt="Paski bindujące i urządzenie"
-                className="relative rounded-3xl shadow-2xl w-full h-[500px] object-cover"
+                className="relative rounded-3xl shadow-2xl w-full h-[500px] object-contain bg-gray-100"
               />
             </motion.div>
 
@@ -396,7 +395,7 @@ export function PackagingMaterials() {
               <img
                 src={cardboardImage}
                 alt="Kartony transportowe"
-                className="rounded-2xl shadow-lg w-full h-64 object-cover mb-6"
+                className="rounded-2xl shadow-lg w-full h-64 object-contain mb-6 bg-gray-100"
               />
 
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
