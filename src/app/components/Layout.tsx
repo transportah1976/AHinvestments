@@ -1,8 +1,9 @@
 import { Link, Outlet, useLocation } from 'react-router';
 import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
 import { useState, useEffect } from 'react';
-
-const logo = 'https://images.unsplash.com/photo-1760786841098-06a0a1a5d661?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cmFuc3BvcnQlMjBsb2dpc3RpY3MlMjBjb21wYW55JTIwbG9nb3xlbnwxfHx8fDE3NzMzNDk4OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral';
+import { Logo } from './Logo';
+import { FaviconLoader } from './FaviconLoader';
+import { getStructuredData } from '../utils/structuredData';
 
 export function Layout() {
   const location = useLocation();
@@ -26,30 +27,7 @@ export function Layout() {
   useEffect(() => {
     const script = document.createElement('script');
     script.type = 'application/ld+json';
-    script.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "AH Investments",
-      "description": "Kompleksowe rozwiązania transportowe i pakujące dla firm. Transport krajowy i międzynarodowy.",
-      "url": "https://ahinvestments.pl",
-      "logo": "https://ahinvestments.pl/logo.png",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+48-885-222-277",
-        "contactType": "customer service",
-        "email": "hszymczak@ahinvestments.pl",
-        "areaServed": ["PL", "EU", "CH", "GB"],
-        "availableLanguage": ["Polish"]
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Jana Pawła II 30 H",
-        "addressLocality": "Swolszewice Duże",
-        "postalCode": "97-320",
-        "addressCountry": "PL"
-      },
-      "sameAs": []
-    });
+    script.text = JSON.stringify(getStructuredData());
     document.head.appendChild(script);
     
     return () => {
@@ -61,6 +39,7 @@ export function Layout() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <FaviconLoader />
       {/* Floating Mobile Contact Buttons */}
       <div className="md:hidden fixed right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3">
         <a
@@ -103,7 +82,7 @@ export function Layout() {
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center transition-transform hover:scale-105">
-              <img src={logo} alt="AH Investments" className="h-18 w-auto" />
+              <Logo className="h-16 w-auto" />
             </Link>
 
             {/* Desktop Navigation */}
@@ -245,7 +224,7 @@ export function Layout() {
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             {/* Company Info */}
             <div className="md:col-span-2">
-              <img src={logo} alt="AH Investments" className="h-20 mb-6" />
+              <Logo className="h-20 mb-6" />
               <p className="text-white/80 mb-6 max-w-md">
                 Kompleksowe rozwiązania transportowe i pakujące dla Twojego biznesu. 
                 Od pakowania po transport – bezpieczeństwo Twojego towaru w jednych rękach.
