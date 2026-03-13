@@ -33,9 +33,9 @@ function figmaAssetPlugin(): Plugin {
       if (id.startsWith('\0figma:asset/')) {
         const filename = id.replace('\0figma:asset/', '')
         const mappedName = figmaAssetMap[filename] || filename
-        // Używamy import.meta.env.BASE_URL, aby ścieżka była poprawna niezależnie od tego,
-        // czy aplikacja jest wdrożona w domenie głównej, czy w podkatalogu.
-        return `export default import.meta.env.BASE_URL + "assets/${mappedName.replace('/assets/', '')}";`
+        // Prosta ścieżka absolutna - to rozwiązuje problem z crashowaniem aplikacji
+        // (import.meta.env.BASE_URL nie działa w modułach z prefiksem \\0 na produkcji)
+        return `export default "${mappedName}";`
       }
       return null
     },
