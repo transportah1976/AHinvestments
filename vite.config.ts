@@ -42,24 +42,11 @@ function figmaAssetPlugin(): Plugin {
   }
 }
 
-function spaRedirectPlugin(): Plugin {
-  return {
-    name: 'spa-redirect',
-    closeBundle() {
-      const outDir = path.resolve(__dirname, 'dist')
-      if (fs.existsSync(outDir)) {
-        fs.writeFileSync(path.resolve(outDir, '_redirects'), '/* /index.html 200\n')
-      }
-    },
-  }
-}
-
 export default defineConfig({
   plugins: [
     figmaAssetPlugin(),
     react(),
     tailwindcss(),
-    spaRedirectPlugin(),
   ],
   resolve: {
     alias: {
