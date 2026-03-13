@@ -5,13 +5,8 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
 // =============================================================================
-// Maps figma:asset/HASH.png → /assets/FILENAME.png at BUILD TIME ONLY.
-// In serve mode (Figma Make preview) this plugin does NOT exist at all,
-// so Figma Make's built-in resolver handles figma:asset natively.
-//
-// Before deploy, place these files in public/assets/:
-//   logo.png, transport.png, stretch-film.png, cornerboards.png,
-//   airbags.png, cardboard.png, strapping.png
+// Maps figma:asset/HASH.png → /assets/FILENAME.png during build.
+// Before deploy, place your image files in public/assets/.
 // =============================================================================
 const figmaAssetMap: Record<string, string> = {
   'a266568bddcde42826338ac9082adbaba10bb5c5.png': '/assets/logo.png',
@@ -23,31 +18,30 @@ const figmaAssetMap: Record<string, string> = {
   '35b151ef7d05debd29efdcb48671afaa16d85c81.png': '/assets/strapping.png',
 }
 
-function figmaAssetBuildPlugin(): Plugin {
+function figmaAssetPlugin(): Plugin {
   return {
-    name: 'figma-asset-build',
+    name: 'figma-asset',
     enforce: 'pre',
+    apply: 'build', // <-- Only map to /assets/ during build. In dev, let the Sandbox's built-in plugin fetch from Figma!
     resolveId(source) {
       if (source.startsWith('figma:asset/')) {
-        const filename = source.replace('figma:asset/', '')
-        if (figmaAssetMap[filename]) {
-          return { id: `\0figma-asset:${filename}`, moduleSideEffects: false }
-        }
+        return '\0' + source  // Prefix with \0 to mark as virtual module
       }
       return null
     },
     load(id) {
-      if (id.startsWith('\0figma-asset:')) {
-        const filename = id.replace('\0figma-asset:', '')
-        const publicPath = figmaAssetMap[filename] || `/assets/${filename}`
-        return `export default ${JSON.stringify(publicPath)};`
+      if (id.startsWith('\0figma:asset/')) {
+        const filename = id.replace('\0figma:asset/', '')
+        const mappedName = figmaAssetMap[filename] || filename
+        // Używamy import.meta.env.BASE_URL, aby ścieżka była poprawna niezależnie od tego,
+        // czy aplikacja jest wdrożona w domenie głównej, czy w podkatalogu.
+        return `export default import.meta.env.BASE_URL + "assets/${mappedName.replace('/assets/', '')}";`
       }
       return null
     },
   }
 }
 
-// Generates _redirects file for Cloudflare Pages / Netlify SPA routing
 function spaRedirectPlugin(): Plugin {
   return {
     name: 'spa-redirect',
@@ -60,12 +54,11 @@ function spaRedirectPlugin(): Plugin {
   }
 }
 
-export default defineConfig(({ command }) => ({
+export default defineConfig({
   plugins: [
+    figmaAssetPlugin(),
     react(),
     tailwindcss(),
-    // ONLY add figma asset resolver during build — never during serve (preview)
-    ...(command === 'build' ? [figmaAssetBuildPlugin()] : []),
     spaRedirectPlugin(),
   ],
   resolve: {
@@ -74,4 +67,4 @@ export default defineConfig(({ command }) => ({
     },
   },
   assetsInclude: ['**/*.svg', '**/*.csv'],
-}))
+})
