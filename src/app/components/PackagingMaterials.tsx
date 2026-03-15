@@ -5,9 +5,10 @@ import { SEO } from './SEO';
 
 import stretchFilmImage from 'figma:asset/001c1621aa22ab2a478a5698f77be9dce320de31.png';
 import cornerboardsImage from 'figma:asset/f19d04960bd150641072a4892397eaf4c8972f04.png';
-import airbagsImage from 'figma:asset/615adbc2858537fb510867afcd2ccc3e9ef8c15d.png';
+import airbagsImage from 'figma:asset/9e6c9b57ac35bd434c1af5560663be633878b965.png';
 import cardboardImage from 'figma:asset/9dd47ef7c9ec4258539938b19df7e46c67c43f9c.png';
 import strappingImage from 'figma:asset/35b151ef7d05debd29efdcb48671afaa16d85c81.png';
+import tubesImage from 'figma:asset/tuleje_placeholder.png';
 
 export function PackagingMaterials() {
   const fadeInUp = {
@@ -282,11 +283,14 @@ export function PackagingMaterials() {
               className="relative"
             >
               <div className="absolute inset-0 bg-[#1B3A5F]/10 rounded-3xl blur-3xl"></div>
-              <img
-                src={airbagsImage}
-                alt="Worki wypełniające przestrzeń"
-                className="relative rounded-3xl shadow-2xl w-full h-[500px] object-contain bg-gray-100"
-              />
+              <div className="overflow-hidden rounded-3xl relative">
+                <img
+                  src={airbagsImage}
+                  alt="Worki wypełniające przestrzeń"
+                  className="relative shadow-2xl w-full h-[500px] object-cover bg-gray-100 scale-[1.01]"
+                  style={{ clipPath: "inset(2px round 1.5rem)" }}
+                />
+              </div>
             </motion.div>
           </div>
         </div>
@@ -437,9 +441,11 @@ export function PackagingMaterials() {
                 <h2 className="text-3xl text-[#1B3A5F]">Tuleje kartonowe</h2>
               </div>
 
-              <div className="bg-white rounded-2xl shadow-lg h-64 mb-6 flex items-center justify-center">
-                <Package className="text-gray-300" size={80} />
-              </div>
+              <img
+                src={tubesImage}
+                alt="Tuleje kartonowe"
+                className="rounded-2xl shadow-lg w-full h-64 object-cover mb-6 bg-gray-100"
+              />
 
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 Tuleje tekturowe są stosowane do zabezpieczania i przechowywania materiałów w rolkach oraz do wzmacniania konstrukcji opakowań.
