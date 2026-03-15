@@ -23,7 +23,7 @@ export function Contact() {
       </section>
 
       {/* Contact Content */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-gray-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Main Contact Person */}
           <div className="max-w-4xl mx-auto mb-16">
@@ -142,7 +142,7 @@ export function Contact() {
       </section>
 
       {/* Map Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl text-[#1B3A5F] text-center mb-12">Znajdź nas</h2>
           <div className="bg-gray-100 rounded-3xl overflow-hidden shadow-xl" style={{ height: '500px' }}>
