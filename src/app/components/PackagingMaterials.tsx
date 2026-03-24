@@ -8,7 +8,7 @@ import cornerboardsImage from 'figma:asset/f19d04960bd150641072a4892397eaf4c8972
 import airbagsImage from 'figma:asset/9e6c9b57ac35bd434c1af5560663be633878b965.png';
 import cardboardImage from 'figma:asset/9dd47ef7c9ec4258539938b19df7e46c67c43f9c.png';
 import strappingImage from 'figma:asset/35b151ef7d05debd29efdcb48671afaa16d85c81.png';
-import tubesImage from 'figma:asset/tuleje_placeholder.png';
+const tubesImage = '/assets/tuleje-kartonowe.png';
 
 export function PackagingMaterials() {
   const fadeInUp = {

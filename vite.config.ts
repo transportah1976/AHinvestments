@@ -17,7 +17,7 @@ const figmaAssetMap: Record<string, string> = {
   '9e6c9b57ac35bd434c1af5560663be633878b965.png': '/assets/airbags.png',
   '9dd47ef7c9ec4258539938b19df7e46c67c43f9c.png': '/assets/cardboard.png',
   '35b151ef7d05debd29efdcb48671afaa16d85c81.png': '/assets/strapping.png',
-  'tuleje_placeholder.png': '/assets/cardboard-tubes.png',
+  'tuleje_placeholder.png': '/assets/tuleje-kartonowe.png',
 }
 
 function figmaAssetPlugin(): Plugin {
