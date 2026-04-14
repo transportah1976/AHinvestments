@@ -1,4 +1,4 @@
-import { Package, Truck, Shield, CheckCircle, ArrowRight, Star } from 'lucide-react';
+import { Package, Truck, Shield, CheckCircle, ArrowRight, Star, Anchor, Train, Plane } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { motion } from 'motion/react';
 import { Link } from 'react-router';
@@ -151,7 +151,8 @@ export function Home() {
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Link to="/transport-miedzynarodowy" className="block">
+            {/* Card 1 – Transport drogowy/międzynarodowy */}
+            <Link to="/transport-drogowy" className="block">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -164,11 +165,11 @@ export function Home() {
                     <Truck className="text-white" size={32} />
                   </div>
                   <h3 className="text-2xl text-[#1B3A5F]">
-                    Transport krajowy i międzynarodowy
+                    Transport drogowy
                   </h3>
                 </div>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Realizujemy przewozy LTL i FTL. Oferujemy transport towarów z Polski do UE. Specjalizujemy się w kierunkach zachodnich – w tym transport towarów do Wielkiej Brytanii, gdzie wspieramy w procedurach celnych.
+                  Realizujemy przewozy LTL i FTL po całej Europie. Specjalizujemy się w kierunkach zachodnich – w tym do Wielkiej Brytanii i Szwajcarii z obsługą celną.
                 </p>
                 <div className="flex items-center gap-2 text-[#F5931D] font-medium">
                   <span>Dowiedz się więcej</span>
@@ -177,7 +178,8 @@ export function Home() {
               </motion.div>
             </Link>
 
-            <Link to="/materialy-opakowaniowe" className="block">
+            {/* Card 2 – Transport morski */}
+            <Link to="/transport-morski" className="block">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -187,14 +189,14 @@ export function Home() {
               >
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-[#1B3A5F] to-[#2a4870] rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                    <Package className="text-white" size={32} />
+                    <Anchor className="text-white" size={32} />
                   </div>
                   <h3 className="text-2xl text-[#1B3A5F]">
-                    Materiały opakowaniowe
+                    Transport morski
                   </h3>
                 </div>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Jako dystrybutor oferujemy wysokiej jakości materiały opakowaniowe, w tym folia stretch oraz kątowniki tekturowe, które zabezpieczają ładunek na czas drogi.
+                  Fracht morski FCL i LCL do portów na całym świecie. Kompleksowa obsługa celna importu i eksportu. Idealne rozwiązanie dla dużych wolumenów towaru.
                 </p>
                 <div className="flex items-center gap-2 text-[#F5931D] font-medium">
                   <span>Dowiedz się więcej</span>
@@ -203,7 +205,8 @@ export function Home() {
               </motion.div>
             </Link>
 
-            <Link to="/kontakt" className="block">
+            {/* Card 3 – Transport kolejowy */}
+            <Link to="/transport-kolejowy" className="block">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -213,14 +216,14 @@ export function Home() {
               >
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-[#F5931D] to-[#e58718] rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                    <Shield className="text-white" size={32} />
+                    <Train className="text-white" size={32} />
                   </div>
                   <h3 className="text-2xl text-[#1B3A5F]">
-                    Kompleksowa obsługa logistyczna
+                    Transport kolejowy
                   </h3>
                 </div>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Zapewniamy pełne wsparcie w takich zadaniach jak pakowanie towarów do wysyłki oraz ich bezpieczny transport. Dbamy o Twój ładunek na każdym etapie logistycznym.
+                  Ekologiczny i niezawodny transport intermodalny. Wagony specjalistyczne dla ładunków masowych i ponadgabarytowych. Sieć połączeń obejmuje 30+ krajów.
                 </p>
                 <div className="flex items-center gap-2 text-[#F5931D] font-medium">
                   <span>Dowiedz się więcej</span>
@@ -228,9 +231,91 @@ export function Home() {
                 </div>
               </motion.div>
             </Link>
+
+            {/* Card 4 – Transport lotniczy */}
+            <Link to="/transport-lotniczy" className="block">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#F5931D]/20 hover:-translate-y-2 h-full cursor-pointer"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#1B3A5F] to-[#2a4870] rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Plane className="text-white" size={32} />
+                  </div>
+                  <h3 className="text-2xl text-[#1B3A5F]">
+                    Transport lotniczy
+                  </h3>
+                </div>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  Najszybszy transport cargo do ponad 200 krajów. Ekspresowe terminy dostaw. Obsługa towarów wartościowych, leków i artykułów szybkopsujących.
+                </p>
+                <div className="flex items-center gap-2 text-[#F5931D] font-medium">
+                  <span>Dowiedz się więcej</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </motion.div>
+            </Link>
+
+            {/* Card 5 – Materiały opakowaniowe */}
+            <Link to="/materialy-opakowaniowe" className="block">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#F5931D]/20 hover:-translate-y-2 h-full cursor-pointer"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#F5931D] to-[#e58718] rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Package className="text-white" size={32} />
+                  </div>
+                  <h3 className="text-2xl text-[#1B3A5F]">
+                    Materiały opakowaniowe
+                  </h3>
+                </div>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  Dystrybutor wysokiej jakości materiałów opakowaniowych: folia stretch, kątowniki tekturowe i inne. Zabezpieczamy ładunek na każdy rodzaj transportu.
+                </p>
+                <div className="flex items-center gap-2 text-[#F5931D] font-medium">
+                  <span>Dowiedz się więcej</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </motion.div>
+            </Link>
+
+            {/* Card 6 – Obsługa logistyczna */}
+            <Link to="/kontakt" className="block">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+                className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#F5931D]/20 hover:-translate-y-2 h-full cursor-pointer"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#1B3A5F] to-[#2a4870] rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Shield className="text-white" size={32} />
+                  </div>
+                  <h3 className="text-2xl text-[#1B3A5F]">
+                    Kompleksowa obsługa logistyczna
+                  </h3>
+                </div>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  Pełne wsparcie na każdym etapie – od doradztwa w pakowaniu, przez wybór optymalnej gałęzi transportu, aż po dostawę do klienta końcowego.
+                </p>
+                <div className="flex items-center gap-2 text-[#F5931D] font-medium">
+                  <span>Skontaktuj się</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </motion.div>
+            </Link>
           </div>
         </div>
       </section>
+
 
       {/* Why Choose Us Section */}
       <section className="py-24 bg-white overflow-hidden">

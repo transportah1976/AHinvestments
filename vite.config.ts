@@ -24,7 +24,7 @@ function figmaAssetPlugin(): Plugin {
   return {
     name: 'figma-asset',
     enforce: 'pre',
-    apply: 'build', // <-- Only map to /assets/ during build. In dev, let the Sandbox's built-in plugin fetch from Figma!
+    // apply: 'build', // Removed to apply in both dev and build modes
     resolveId(source) {
       if (source.startsWith('figma:asset/')) {
         return '\0' + source  // Prefix with \0 to mark as virtual module

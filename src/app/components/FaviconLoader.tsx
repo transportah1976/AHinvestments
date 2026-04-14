@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import logoImage from 'figma:asset/a266568bddcde42826338ac9082adbaba10bb5c5.png';
+import logoImage from '../../assets/logo.png';
 
 export function FaviconLoader() {
   useEffect(() => {

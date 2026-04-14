@@ -1,6 +1,6 @@
 import { Link, Outlet, useLocation } from 'react-router';
-import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { Menu, X, Phone, Mail, MapPin, ChevronDown } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
 import { Logo } from './Logo';
 import { FaviconLoader } from './FaviconLoader';
 import { getStructuredData } from '../utils/structuredData';
@@ -9,6 +9,9 @@ export function Layout() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [transportOpen, setTransportOpen] = useState(false);
+  const [mobileTransportOpen, setMobileTransportOpen] = useState(false);
+  const transportRef = useRef<HTMLDivElement>(null);
 
   // Scroll to top on route change
   useEffect(() => {
@@ -21,6 +24,17 @@ export function Layout() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close transport dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (transportRef.current && !transportRef.current.contains(e.target as Node)) {
+        setTransportOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   // Add structured data for SEO
@@ -36,6 +50,12 @@ export function Layout() {
   }, []);
 
   const isActive = (path: string) => location.pathname === path;
+  const isTransportActive = () => [
+    '/transport-drogowy',
+    '/transport-morski',
+    '/transport-kolejowy',
+    '/transport-lotniczy'
+  ].includes(location.pathname);
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -117,16 +137,47 @@ export function Layout() {
               >
                 Materiały opakowaniowe
               </Link>
-              <Link
-                to="/transport-miedzynarodowy"
-                className={`px-5 py-2 rounded-lg transition-all transform hover:scale-105 ${
-                  isActive('/transport-miedzynarodowy') 
-                    ? 'text-[#F5931D] bg-[#F5931D]/10' 
-                    : 'text-[#1B3A5F] hover:bg-gray-50'
-                }`}
-              >
-                Transport międzynarodowy
-              </Link>
+              {/* Transport Dropdown */}
+              <div className="relative" ref={transportRef}>
+                <button
+                  onClick={() => setTransportOpen(!transportOpen)}
+                  className={`flex items-center gap-1 px-5 py-2 rounded-lg transition-all transform hover:scale-105 ${
+                    isTransportActive()
+                      ? 'text-[#F5931D] bg-[#F5931D]/10'
+                      : 'text-[#1B3A5F] hover:bg-gray-50'
+                  }`}
+                >
+                  Transport
+                  <ChevronDown
+                    size={16}
+                    className={`transition-transform duration-200 ${transportOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
+
+                {transportOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                    {[
+                      { to: '/transport-drogowy', label: 'Transport drogowy' },
+                      { to: '/transport-morski', label: 'Transport morski' },
+                      { to: '/transport-kolejowy', label: 'Transport kolejowy' },
+                      { to: '/transport-lotniczy', label: 'Transport lotniczy' },
+                    ].map((item) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        onClick={() => setTransportOpen(false)}
+                        className={`block px-4 py-2.5 text-sm transition-colors hover:bg-[#F5931D]/10 hover:text-[#F5931D] ${
+                          isActive(item.to)
+                            ? 'text-[#F5931D] bg-[#F5931D]/10'
+                            : 'text-[#1B3A5F]'
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
               <Link
                 to="/kontakt"
                 className={`ml-2 px-8 py-3 rounded-full transition-all shadow-md hover:shadow-xl transform hover:scale-105 ${
@@ -185,17 +236,44 @@ export function Layout() {
                 >
                   Materiały opakowaniowe
                 </Link>
-                <Link
-                  to="/transport-miedzynarodowy"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`py-3 px-4 rounded-lg transition-colors ${
-                    isActive('/transport-miedzynarodowy') 
-                      ? 'text-[#F5931D] bg-[#F5931D]/10' 
+                {/* Transport group in mobile */}
+                <button
+                  onClick={() => setMobileTransportOpen(!mobileTransportOpen)}
+                  className={`flex items-center justify-between py-3 px-4 rounded-lg transition-colors w-full text-left ${
+                    isTransportActive()
+                      ? 'text-[#F5931D] bg-[#F5931D]/10'
                       : 'text-[#1B3A5F] hover:bg-gray-50'
                   }`}
                 >
-                  Transport międzynarodowy
-                </Link>
+                  Transport
+                  <ChevronDown
+                    size={16}
+                    className={`transition-transform duration-200 ${mobileTransportOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                {mobileTransportOpen && (
+                  <div className="pl-4 flex flex-col gap-1">
+                    {[
+                      { to: '/transport-drogowy', label: 'Transport drogowy' },
+                      { to: '/transport-morski', label: 'Transport morski' },
+                      { to: '/transport-kolejowy', label: 'Transport kolejowy' },
+                      { to: '/transport-lotniczy', label: 'Transport lotniczy' },
+                    ].map((item) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        onClick={() => { setMobileMenuOpen(false); setMobileTransportOpen(false); }}
+                        className={`py-2.5 px-4 rounded-lg transition-colors text-sm ${
+                          isActive(item.to)
+                            ? 'text-[#F5931D] bg-[#F5931D]/10'
+                            : 'text-[#1B3A5F] hover:bg-gray-50'
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
                 <Link
                   to="/kontakt"
                   onClick={() => setMobileMenuOpen(false)}
@@ -251,8 +329,23 @@ export function Layout() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/transport-miedzynarodowy" className="text-white/80 hover:text-[#F5931D] transition-colors">
-                    Transport międzynarodowy
+                  <Link to="/transport-drogowy" className="text-white/80 hover:text-[#F5931D] transition-colors">
+                    Transport drogowy
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/transport-morski" className="text-white/80 hover:text-[#F5931D] transition-colors">
+                    Transport morski
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/transport-kolejowy" className="text-white/80 hover:text-[#F5931D] transition-colors">
+                    Transport kolejowy
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/transport-lotniczy" className="text-white/80 hover:text-[#F5931D] transition-colors">
+                    Transport lotniczy
                   </Link>
                 </li>
                 <li>

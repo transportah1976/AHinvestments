@@ -1,9 +1,10 @@
+import { Link } from 'react-router';
 import { Truck, Shield, Clock, Globe, Phone, Euro, HeartHandshake, PackageCheck } from 'lucide-react';
 import { motion } from 'motion/react';
 import { SEO } from './SEO';
-import transportImage from 'figma:asset/5b73e6c3adf9be9d27c1a5f9d947f37f274bc7c8.png';
+import transportImage from '../../assets/transport.png';
 
-export function InternationalTransport() {
+export function RoadTransport() {
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
@@ -52,9 +53,9 @@ export function InternationalTransport() {
   return (
     <div>
       <SEO 
-        title="Transport towarów z Polski do UE i UK" 
-        description="Oferujemy bezpieczny transport towarów z Polski do UE, w tym transport towarów do Wielkiej Brytanii. Terminowa logistyka dla najbardziej wymagających firm."
-        keywords="transport towarów z Polski do UE, transport towarów do Wielkiej Brytanii, pakowanie towarów do wysyłki, jak zabezpieczyć towar do transportu, logistyka, spedycja"
+        title="Transport drogowy krajowy i międzynarodowy | AH Investments" 
+        description="Profesjonalny transport drogowy towarów z Polski do UE, w tym transport do Wielkiej Brytanii i Szwajcarii. Bezpieczna logistyka drogowa dla Twojej firmy."
+        keywords="transport drogowy, transport towarów z Polski do UE, transport towarów do Wielkiej Brytanii, transport Szwajcaria, spedycja drogowa, logistyka"
       />
       {/* Header */}
       <section className="relative bg-gradient-to-br from-[#1B3A5F] via-[#2a4870] to-[#1B3A5F] text-white py-24 md:py-32 overflow-hidden">
@@ -73,14 +74,29 @@ export function InternationalTransport() {
           >
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full mb-8">
               <Truck className="text-[#F5931D]" size={24} />
-              <span className="text-white/90">Transport międzynarodowy</span>
+              <span className="text-white/90">Transport drogowy</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6">
-              Transport międzynarodowy <span className="text-[#F5931D]">bez kompromisów</span>
+              Transport drogowy <span className="text-[#F5931D]">bez kompromisów</span>
             </h1>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto">
-              Zapewniamy szybki i bezpieczny <strong>transport towarów z Polski do UE</strong>, ze szczególnym uwzględnieniem kierunków zachodnich. Nasza specjalność to <strong>transport towarów do Wielkiej Brytanii</strong>.
+            <p className="text-xl text-white/80 max-w-3xl mx-auto mb-10">
+              Zapewniamy szybki i bezpieczny <strong>transport drogowy towarów z Polski do UE</strong>, ze szczególnym uwzględnieniem Szwajcarii i Wielkiej Brytanii.
             </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link 
+                to="/kontakt"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#F5931D] text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+              >
+                Bezpłatna wycena
+              </Link>
+              <a 
+                href="tel:+48885222277"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border border-white/30 hover:bg-white/20 hover:scale-105 transition-all"
+              >
+                <Phone size={20} />
+                +48 885 222 277
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -110,7 +126,7 @@ export function InternationalTransport() {
           >
             <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Każde zlecenie traktujemy indywidualnie, realizując sprawny transport towarów z Polski do UE z dbałością o najwyższą jakość obsługi oraz pełną kontrolę nad przewozem. Organizujemy również kompleksowy transport towarów do Wielkiej Brytanii, obejmujący formalności celne.
+                Każde zlecenie traktujemy indywidualnie, realizując sprawny transport drogowy towarów z Polski do UE z dbałością o najwyższą jakość obsługi oraz pełną kontrolę nad przewozem. Organizujemy również kompleksowy transport drogowy do Wielkiej Brytanii i Szwajcarii, obejmujący pełną obsługę formalności celnych.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
                 W razie potrzeby pomagamy doradzić, jak zabezpieczyć towar do transportu oraz organizujemy bezpieczne pakowanie towarów do wysyłki, aby Twój ładunek dotarł na miejsce w idealnym stanie, niezależnie od odległości.
